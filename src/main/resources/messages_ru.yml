@@ -1,0 +1,8 @@
+prefix: "&6[GabriTotems] "
+reload: "&aКонфигурация перезагружена."
+no-permission: "&cНет прав доступа."
+totem-activated: "&aТотем &e{name} &aактивирован!"
+cooldown: "&cПодожди &e{time} сек&c!"
+curse-applied: "&cПроклятье наложено на &e{count} &cигроков!"
+totem-given: "&aВыдан тотем &e{totem} &aигроку &e{player}"
+totem-list: "&aДоступные тотемы: &e{totems}"

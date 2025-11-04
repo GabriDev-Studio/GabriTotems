@@ -1,0 +1,226 @@
+# ===================================================================
+#                     GABRITOTEMS — Плагин На тотемы :)
+# ===================================================================
+# Настройка тотемов тут находится)).
+# Каждый тотем нужно настройть чтобы работал.
+# ===================================================================
+# Глобальные настройки (на всех игроков) - кулдаун, и т.п
+# ===================================================================
+# config-version: 2
+#   → Версия конфига. НЕ МЕНЯЙТЕ! Используется для авто-обновления.
+# check-updates: true 
+#   → Проверка Обновлений. false - не проверяет, true - проверяет.
+#
+# logging:
+#   enabled: true
+#     → Включить/выключить запись логов в файл
+#   file: logs/uses.log
+#     → Путь к файлу логов (относительно папки плагина)
+#
+# global:
+#   check-offhand: true
+#     → Проверять ли вторую руку (offhand) при активации
+#   check-armor: true
+#     → Проверять ли броню (шлем, нагрудник и т.д.)
+#   check-inventory: true
+#     → Проверять весь инвентарь при авто-использовании
+#
+# ===================================================================
+# Это чтоб ты знал что за что управляет ДУРЕНЬ
+# ===================================================================
+# Каждый тотем — отдельный блок с уникальным ID (например, curse-totem)
+#
+# enabled: true
+#   → Включить/выключить тотем
+#
+# item: NETHER_STAR
+#   → Материал предмета (например, TOTEM_OF_UNDYING, NETHER_STAR, BLAZE_ROD)
+#
+# custom-model-data: 666 или "none"
+#   → CustomModelData из ресурс-пака. Если "none" — игнорируется.
+#   → Пример: 666 — требует точное совпадение NBT
+#
+# display-name: "&cТотем Проклятья"
+#   → Название предмета (с цветами через &)
+#
+# lore:
+#   - "&7Проклинает врагов в радиусе"
+#   - "&8(Только в руке)"
+#   → Лор (описание) предмета, каждая строка — отдельный элемент
+#
+# enchantments:
+#   UNBREAKING: 1
+#   GLOWING: 0
+#   → Зачарования на предмете. Формат: НАЗВАНИЕ:УРОВЕНЬ
+#   → GLOWING:0 — просто свечение без эффекта
+#
+# auto-use: true
+#   → Автоматически использовать из инвентаря при смерти?
+#   → false — только если в руке
+#
+# trigger: DAMAGE
+#   → Когда активировать:
+#   → DAMAGE   — при смертельном уроне
+#   → LAVA     — при попадании в лаву
+#   → FALL    — при падении с высоты
+#   → EXPLOSION — при взрыве
+#
+# cooldown: 120
+#   → Кулдаун в секундах между использованиями
+#   → 0 = без кулдауна
+#
+# health-restore: 0.0
+#   → Сколько здоровья восстановить (1.0 = пол сердца)
+#
+# message: "&cТы активировал проклятье!"
+#   → Сообщение в чат игроку
+#
+# actionbar: "&cПроклятье наложено!"
+#   → Сообщение в ActionBar (над инвентарём)
+#
+# title: "&4ПРОКЛЯТИЕ"
+# subtitle: "&7Враги страдают..."
+#   → Заголовок на экране (title + subtitle)
+#
+# sound: ENTITY_WITHER_SPAWN
+#   → Звук при активации. Список: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+#   → NONE = без звука
+#
+# particle: SOUL_FIRE_FLAME
+#   → Частицы вокруг игрока
+#   → NONE = без частиц
+#
+# particle-count: 50
+#   → Количество частиц
+#
+# radius: 10
+#   → Радиус действия (для проклятий, AoE)
+#
+# effects:
+#   - "POISON:200:1"
+#   - "WEAKNESS:300:1"
+#   → Эффекты на АКТИВАТОРА (себя)
+#   → Формат: ЭФФЕКТ:ДЛИТЕЛЬНОСТЬ(в тиках):УСИЛЕНИЕ
+#   → 20 тиков = 1 секунда
+#
+# commands:
+#   - "effect give @a[distance=..10] minecraft:slowness 15 1"
+#   → Команды от консоли при активации
+#   → %player% → имя игрока
+#
+# give-items:
+#   - "GOLDEN_APPLE 1"
+#   → Выдать предметы игроку
+#   → Формат: МАТЕРИАЛ КОЛИЧЕСТВО
+#
+# teleport: SPAWN
+#   → Телепортация:
+#   → SPAWN — на спавн мира
+#   → BED   — к кровати
+#   → NONE  — без телепорта
+#
+# curse:
+#   enabled: true
+#     → Включить проклятье на врагов
+#   radius: 10
+#     → Радиус действия проклятья
+#   effects:
+#     - "POISON:200:1"
+#     - "BLINDNESS:100:0"
+#     → Эффекты на ВРАГОВ
+#   message-to-victim: "&cТы проклят!"
+#     → Сообщение жертвам
+#
+# ===================================================================
+config-version: 2
+check-updates: true
+
+global:
+  check-offhand: true
+  check-armor: true
+  check-inventory: true
+
+custom-totems:
+  curse-totem:
+    enabled: true
+    item: NETHER_STAR
+    custom-model-data: 666
+    display-name: "&cТотем Проклятья"
+    lore:
+      - "&7Проклинает врагов в радиусе 10 блоков"
+      - "&8Требует CustomModelData: 666"
+    enchantments:
+      UNBREAKABLE: 1
+      GLOWING: 0
+    auto-use: true
+    trigger: DAMAGE
+    cooldown: 120
+    health-restore: 0.0
+    message: "&cТы активировал проклятье!"
+    actionbar: "&cПроклятье наложено на врагов!"
+    title: "&4ПРОКЛЯТИЕ"
+    subtitle: "&7Все в радиусе страдают..."
+    sound: ENTITY_WITHER_SPAWN
+    particle: SOUL_FIRE_FLAME
+    particle-count: 50
+    radius: 10
+    effects:
+      - "RESISTANCE:100:1"
+    commands:
+      - "effect give @a[distance=..10,name=!%player%] minecraft:slowness 15 1"
+    give-items:
+      - "GOLDEN_APPLE 1"
+    teleport: SPAWN
+    curse:
+      enabled: true
+      radius: 10
+      effects:
+        - "POISON:200:1"
+        - "WEAKNESS:300:1"
+        - "BLINDNESS:100:0"
+      message-to-victim: "&cТы проклят тотемом %player%!"
+
+  fire-totem:
+    enabled: true
+    item: BLAZE_ROD
+    custom-model-data: none
+    display-name: "&6Тотем Огня"
+    lore:
+      - "&7Даёт огнестойкость при падении в лаву"
+    enchantments: {}
+    auto-use: false
+    trigger: LAVA
+    cooldown: 60
+    health-restore: 4.0
+    message: "&6Огнестойкость активирована!"
+    actionbar: "&6Ты в безопасности!"
+    title: "&6ОГОНЬ"
+    subtitle: "&7Не боишься жара"
+    sound: BLOCK_FIRE_EXTINGUISH
+    particle: FLAME
+    particle-count: 30
+    radius: 5
+    effects:
+      - "FIRE_RESISTANCE:600:0"
+      - "REGENERATION:100:1"
+    commands: []
+    give-items: []
+    teleport: NONE
+    curse:
+      enabled: false
+
+  # === ДОБАВЬ СВОЙ ТОТЕМ ЗДЕСЬ ===
+  # my-totem:
+  #   enabled: true
+  #   item: DIAMOND
+  #   custom-model-data: none
+  #   display-name: "&bМой Тотем"
+  #   lore:
+  #     - "&7Тестовый тотем"
+  #   auto-use: true
+  #   trigger: FALL
+  #   cooldown: 30
+  #   health-restore: 6.0
+  #   message: "&aТотем спас тебя от падения!"
+  #   effects:
+  #     - "SLOW_FALLING:200:0"
