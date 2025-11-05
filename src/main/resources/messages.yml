@@ -1,8 +1,0 @@
-prefix: "&6[GabriTotems] "
-reload: "&aConfig reloaded."
-no-permission: "&cNo permission."
-totem-activated: "&aTotem &e{name} &aactivated!"
-cooldown: "&cWait &e{time} sec&c!"
-curse-applied: "&cCurse applied to &e{count} &cplayers!"
-totem-given: "&aGiven totem &e{totem} &ato &e{player}"
-totem-list: "&aAvailable totems: &e{totems}"

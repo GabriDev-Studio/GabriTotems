@@ -17,4 +17,8 @@ public class LoggerUtil {
     public static void warning(String msg) {
         if (plugin != null) plugin.getLogger().warning(ChatColor.translateAlternateColorCodes('&', msg));
     }
+
+    public static void error(String msg) {
+        if (plugin != null) plugin.getLogger().severe(ChatColor.translateAlternateColorCodes('&', msg));
+    }
 }

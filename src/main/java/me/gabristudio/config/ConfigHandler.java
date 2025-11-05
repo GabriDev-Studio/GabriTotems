@@ -31,7 +31,6 @@ public class ConfigHandler {
         int version = config.getInt("config-version", 1);
         if (version < 2) {
             config.set("config-version", 2);
-            config.set("global.check-armor", true);
             saveConfig();
         }
     }

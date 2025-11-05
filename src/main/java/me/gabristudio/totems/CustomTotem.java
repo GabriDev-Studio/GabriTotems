@@ -8,26 +8,30 @@ import java.util.List;
 import java.util.Map;
 
 public class CustomTotem {
+
     private final String id;
-    private Material material;
-    private int customModelData = -1;
-    private String displayName;
-    private List<String> lore;
-    private Map<Enchantment, Integer> enchantments;
-    private boolean autoUse;
-    private String trigger;
-    private int cooldown;
-    private double healthRestore;
-    private String message, actionbar, title, subtitle;
-    private Sound sound;
-    private String particle;
-    private int particleCount;
-    private double radius;
-    private List<String> effects;
-    private List<String> commands;
-    private List<String> giveItems;
-    private String teleport;
-    private Curse curse;
+    private final Material material;
+    private final int customModelData;
+    private final String displayName;
+    private final List<String> lore;
+    private final Map<Enchantment, Integer> enchantments;
+    private final boolean autoUse;
+    private final String trigger;
+    private final int cooldown;
+    private final double healthRestore;
+    private final String message;
+    private final String actionbar;
+    private final String title;
+    private final String subtitle;
+    private final Sound sound;
+    private final String particle;
+    private final int particleCount;
+    private final double radius;
+    private final List<String> effects;
+    private final List<String> commands;
+    private final List<String> giveItems;
+    private final String teleport;
+    private final Curse curse;
 
     public CustomTotem(String id, Material material, int customModelData, String displayName, List<String> lore,
                        Map<Enchantment, Integer> enchantments, boolean autoUse, String trigger, int cooldown,
@@ -59,7 +63,7 @@ public class CustomTotem {
         this.curse = curse;
     }
 
-    // Геттеры (ты ток за сюда зашёл? :) Думаешь гпт???)
+    // Геттеры
     public String getId() { return id; }
     public Material getMaterial() { return material; }
     public int getCustomModelData() { return customModelData; }
@@ -84,11 +88,17 @@ public class CustomTotem {
     public String getTeleport() { return teleport; }
     public Curse getCurse() { return curse; }
 
+    // ДОБАВЛЕНО: Проверка включён ли тотем
+    public boolean isEnabled() {
+        return true; // Все загруженные тотемы включены (фильтрация в loadTotems)
+    }
+
+    // Вложенный класс Curse
     public static class Curse {
-        private boolean enabled;
-        private double radius;
-        private List<String> effects;
-        private String message;
+        private final boolean enabled;
+        private final double radius;
+        private final List<String> effects;
+        private final String message;
 
         public Curse(boolean enabled, double radius, List<String> effects, String message) {
             this.enabled = enabled;

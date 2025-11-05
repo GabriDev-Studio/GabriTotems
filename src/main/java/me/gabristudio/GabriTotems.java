@@ -41,7 +41,8 @@ public final class GabriTotems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TotemListener(this), this);
         getCommand("gabritotems").setExecutor(new TotemCommand(this));
 
-        updateChecker = new UpdateChecker(this);
+        // ИСПРАВЛЕНО: Передаём owner и repo
+        updateChecker = new UpdateChecker(this, "GabriDev-Studio", "GabriTotems");
         if (getConfig().getBoolean("check-updates", true)) {
             updateChecker.checkForUpdates();
         }

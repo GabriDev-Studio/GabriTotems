@@ -3,8 +3,9 @@ version: 1.0
 main: me.gabristudio.GabriTotems
 api-version: 1.16
 author: GabriDev
-description: Кастомные Тотемы от Габричка :0
+description: Кастомные Тотемчики от Габричка :0
 softdepend: [PlaceholderAPI]
+website: https://github.com/GabriDev-Studio/GabriTotems
 
 commands:
   gabritotems:

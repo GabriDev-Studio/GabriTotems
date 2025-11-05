@@ -63,12 +63,7 @@ public class TotemCommand implements CommandExecutor {
 
             case "update" -> {
                 plugin.getUpdateChecker().checkForUpdates();
-                if (plugin.getUpdateChecker().isUpdateAvailable()) {
-                    sender.sendMessage("§aДоступно обновление: §e" + plugin.getUpdateChecker().getLatestVersion());
-                    sender.sendMessage("§aСкачать: §ehttps://github.com/GabriDev-Studio/GabriTotems/releases/latest");
-                } else {
-                    sender.sendMessage("§aВы используете последнюю версию.");
-                }
+                sender.sendMessage("§aПроверка обновлений запущена. Смотрите консоль.");
             }
 
             default -> sendHelp(sender);
