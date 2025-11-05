@@ -1,9 +1,9 @@
 name: GabriTotems
-version: 1.0
+version: 1.2
 main: me.gabristudio.GabriTotems
 api-version: 1.16
 author: GabriDev
-description: Кастомные Тотемчики от Габричка :0
+description: t.me/GabriStudio :0
 softdepend: [PlaceholderAPI]
 website: https://github.com/GabriDev-Studio/GabriTotems
 
@@ -11,7 +11,12 @@ commands:
   gabritotems:
     description: Управление тотемами
     usage: /gabritotems <reload|give|list>
-    aliases: [gtotems, totem]
+    aliases: [gtotems]
+    permission: gabritotems.admin
+  totem:
+    description: Управление тотемами
+    usage: /gabritotems <reload|give|list>
+    aliases: [gtotems]
     permission: gabritotems.admin
 
 permissions:
